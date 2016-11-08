@@ -31,11 +31,15 @@ void ergodox_blink_all_leds(void)
 {
     ergodox_led_all_off();
     ergodox_led_all_set(LED_BRIGHTNESS_HI);
+    ergodox_board_led_on();
+    _delay_ms(50);
     ergodox_right_led_1_on();
     _delay_ms(50);
     ergodox_right_led_2_on();
     _delay_ms(50);
     ergodox_right_led_3_on();
+    _delay_ms(50);
+    ergodox_board_led_off();
     _delay_ms(50);
     ergodox_right_led_1_off();
     _delay_ms(50);
