@@ -37,4 +37,24 @@
 		{k50, k51, k52, k57, k57, k57, k57, k57, k57, k57, k5a, k5b, k5c, k5d, k5e, k5f, k5g} \
 }
 
+/* Led helpers, they live here because led.c is for overriding global stuff */
+
+inline void phantom_led_l_on(void) { PORTB |= (1<<6); }
+inline void phantom_led_r_on(void) { PORTB |= (1<<7); }
+
+inline void phantom_led_l_off(void) { PORTB &= ~(1<<6); }
+inline void phantom_led_r_off(void) { PORTB &= ~(1<<7); }
+
+inline void phantom_led_all_on(void) {
+    phantom_led_r_on();
+    phantom_led_l_on();
+}
+
+inline void phantom_led_all_off(void) {
+    phantom_led_r_off();
+    phantom_led_l_off();
+}
+
+void phantom_blink_all_leds(void);
+
 #endif
