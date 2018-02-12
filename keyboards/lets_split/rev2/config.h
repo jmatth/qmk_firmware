@@ -1,5 +1,6 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef REV2_CONFIG_H
+#define REV2_CONFIG_H
 
 #include "config_common.h"
 
@@ -36,23 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // wiring of each half
 #define MATRIX_ROW_PINS { D7, E6, B4, B5 }
 #define MATRIX_COL_PINS { F6, F7, B1, B3, B2, B6 }
-
-#define CATERINA_BOOTLOADER
-
-// #define USE_I2C
-
-// Use serial if not using I2C
-#ifndef USE_I2C
-#  define USE_SERIAL
-#endif
-
-// #define EE_HANDS
-
-#define I2C_MASTER_LEFT
-// #define I2C_MASTER_RIGHT
-
-/* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+// #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6 } //uncomment this line and comment line above if you need to reverse left-to-right key order
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

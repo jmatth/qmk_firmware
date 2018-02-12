@@ -1,5 +1,6 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef REV1_CONFIG_H
+#define REV1_CONFIG_H
 
 #include "config_common.h"
 
@@ -25,7 +26,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x3060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Wootpatoot
-#define PRODUCT         Lets Split
 #define PRODUCT         Lets Split v1
 #define DESCRIPTION     A split keyboard for the cheap makers
 
@@ -37,22 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // wiring of each half
 #define MATRIX_ROW_PINS { B5, B4, E6, D7 }
 #define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3 }
-
-#define CATERINA_BOOTLOADER
-
-// #define USE_I2C
-// Use serial if not using I2C
-#ifndef USE_I2C
-#  define USE_SERIAL
-#endif
-
-// #define EE_HANDS
-
-#define I2C_MASTER_LEFT
-// #define I2C_MASTER_RIGHT
-
-/* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+// #define MATRIX_COL_PINS { B3, B1, F7, F6, F5, F4 } //uncomment this line and comment line above if you need to reverse left-to-right key order
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -72,6 +57,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
+
+/* ws2812 RGB LED */
+#define RGB_DI_PIN D3
+#define RGBLIGHT_TIMER
+#define RGBLED_NUM 16    // Number of LEDs
+#define ws2812_PORTREG  PORTD
+#define ws2812_DDRREG   DDRD
 
 /*
  * Feature disable options
